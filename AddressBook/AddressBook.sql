@@ -95,3 +95,41 @@ mysql> SELECT * FROM contacts WHERE city = "Springfield" ORDER BY (firstname);
 +----+-----------+----------+-------------+-------------+-------+-------+--------------+------------------------+
 2 rows in set (0.00 sec)
 
+-- UC 9 - Ability to identify each address book with type
+mysql> ALTER TABLE contacts ADD contact_type VARCHAR(10) NOT NULL AFTER id;
+Query OK, 0 rows affected (0.04 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM contacts;
++----+--------------+-----------+----------+-------------+-------------+-------+-------+--------------+------------------------+
+| id | contact_type | firstname | lastname | address     | city        | state | zip   | phone_number | email                  |
++----+--------------+-----------+----------+-------------+-------------+-------+-------+--------------+------------------------+
+|  1 |              | John      | Doe      | 123 Main St | Anytown     | CA    | 12345 | 5555551234   | john.doe@example.com   |
+|  2 |              | Jane      | Smith    | 456 Oak Ave | Springfield | IL    | 67890 | 5555555678   | jane.smith@example.com |
+|  4 |              | Alex      | Smith    | 789 Pine Rd | Lakeside    | FL    | 34567 | 5555558766   | alex.smith@example.com |
+|  5 |              | Jack      | Smith    | 45 Street   | Springfield | IL    | 67890 | 5555555789   | jack_s@example.com     |
++----+--------------+-----------+----------+-------------+-------------+-------+-------+--------------+------------------------+
+4 rows in set (0.00 sec)
+
+mysql> UPDATE contacts SET contact_type = "Friend" WHERE firstname = "Alex";
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE contacts SET contact_type = "Family" WHERE firstname = "Jane";
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE contacts SET contact_type = "Family" WHERE firstname = "Jack";
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT * FROM contacts;
++----+--------------+-----------+----------+-------------+-------------+-------+-------+--------------+------------------------+
+| id | contact_type | firstname | lastname | address     | city        | state | zip   | phone_number | email                  |
++----+--------------+-----------+----------+-------------+-------------+-------+-------+--------------+------------------------+
+|  1 | Friend       | John      | Doe      | 123 Main St | Anytown     | CA    | 12345 | 5555551234   | john.doe@example.com   |
+|  2 | Family       | Jane      | Smith    | 456 Oak Ave | Springfield | IL    | 67890 | 5555555678   | jane.smith@example.com |
+|  4 | Friend       | Alex      | Smith    | 789 Pine Rd | Lakeside    | FL    | 34567 | 5555558766   | alex.smith@example.com |
+|  5 | Family       | Jack      | Smith    | 45 Street   | Springfield | IL    | 67890 | 5555555789   | jack_s@example.com     |
++----+--------------+-----------+----------+-------------+-------------+-------+-------+--------------+------------------------+
+4 rows in set (0.00 sec)
