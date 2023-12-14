@@ -144,3 +144,12 @@ mysql> SELECT contact_type, COUNT(*) FROM contacts GROUP BY contact_type;
 +--------------+----------+
 2 rows in set (0.00 sec)
 
+--UC 11 - Ability to add person to both Friend and Family
+mysql> UPDATE contacts SET contact_type = "Friend" WHERE firstname = "Alex";
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE contacts SET contact_type = "Family" WHERE firstname = "Jane";
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
