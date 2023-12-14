@@ -133,3 +133,14 @@ mysql> SELECT * FROM contacts;
 |  5 | Family       | Jack      | Smith    | 45 Street   | Springfield | IL    | 67890 | 5555555789   | jack_s@example.com     |
 +----+--------------+-----------+----------+-------------+-------------+-------+-------+--------------+------------------------+
 4 rows in set (0.00 sec)
+
+--UC 10 - Ability to get number of contact persons
+mysql> SELECT contact_type, COUNT(*) FROM contacts GROUP BY contact_type;
++--------------+----------+
+| contact_type | COUNT(*) |
++--------------+----------+
+| Friend       |        2 |
+| Family       |        2 |
++--------------+----------+
+2 rows in set (0.00 sec)
+
