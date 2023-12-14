@@ -37,3 +37,7 @@ mysql> desc employee_payroll;
 4 rows in set (0.00 sec)
 
 --UC 3 - Insert into table
+mysql> INSERT INTO employee_payroll (name,salary,start) VALUES ("Bill",100000,'2023-12-12'),('Emily',120000,'2023-11-12'),('John',130
+00,'2023-10-12');
+Query OK, 3 rows affected (0.01 sec)
+Records: 3  Duplicates: 0  Warnings: 0
