@@ -41,3 +41,14 @@ mysql> INSERT INTO employee_payroll (name,salary,start) VALUES ("Bill",100000,'2
 00,'2023-10-12');
 Query OK, 3 rows affected (0.01 sec)
 Records: 3  Duplicates: 0  Warnings: 0
+
+--UC 4 - View table
+mysql> SELECT * from employee_payroll;
++----+-------+--------+------------+
+| id | name  | salary | start      |
++----+-------+--------+------------+
+|  1 | Bill  | 100000 | 2023-12-12 |
+|  2 | Emily | 120000 | 2023-11-12 |
+|  3 | John  |  13000 | 2023-10-12 |
++----+-------+--------+------------+
+3 rows in set (0.00 sec)
