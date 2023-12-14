@@ -76,3 +76,12 @@ mysql> SELECT * FROM contacts WHERE state = "IL";
 +----+-----------+----------+-------------+-------------+-------+-------+--------------+------------------------+
 1 row in set (0.00 sec)
 
+--UC 7 - Ability to understand the size of address book by City and State
+mysql> SELECT COUNT(*) FROM contacts WHERE city ="Springfield" OR state = "CA";
++----------+
+| COUNT(*) |
++----------+
+|        2 |
++----------+
+1 row in set (0.00 sec)
+
