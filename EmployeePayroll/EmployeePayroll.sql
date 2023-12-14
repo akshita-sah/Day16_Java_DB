@@ -52,3 +52,22 @@ mysql> SELECT * from employee_payroll;
 |  3 | John  |  13000 | 2023-10-12 |
 +----+-------+--------+------------+
 3 rows in set (0.00 sec)
+
+--UC 5 - View according to query
+mysql> SELECT salary FROM employee_payroll WHERE name = "Bill";
++--------+
+| salary |
++--------+
+| 100000 |
++--------+
+1 row in set (0.00 sec)
+
+mysql> SELECT salary FROM employee_payroll WHERE start BETWEEN CAST('2023-11-12' AS DATE) AND DATE(NOW());
++--------+
+| salary |
++--------+
+| 100000 |
+| 120000 |
++--------+
+2 rows in set (0.00 sec)
+
