@@ -85,3 +85,13 @@ mysql> SELECT COUNT(*) FROM contacts WHERE city ="Springfield" OR state = "CA";
 +----------+
 1 row in set (0.00 sec)
 
+-- UC 8 - Ability to retrieve entries sorted alphabetically by Person’s name for a given city
+mysql> SELECT * FROM contacts WHERE city = "Springfield" ORDER BY (firstname);
++----+-----------+----------+-------------+-------------+-------+-------+--------------+------------------------+
+| id | firstname | lastname | address     | city        | state | zip   | phone_number | email                  |
++----+-----------+----------+-------------+-------------+-------+-------+--------------+------------------------+
+|  5 | Jack      | Smith    | 45 Street   | Springfield | IL    | 67890 | 5555555789   | jack_s@example.com     |
+|  2 | Jane      | Smith    | 456 Oak Ave | Springfield | IL    | 67890 | 5555555678   | jane.smith@example.com |
++----+-----------+----------+-------------+-------------+-------+-------+--------------+------------------------+
+2 rows in set (0.00 sec)
+
