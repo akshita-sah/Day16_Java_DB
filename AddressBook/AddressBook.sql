@@ -32,3 +32,8 @@ mysql>  INSERT INTO contacts (firstname,lastname,address,city,state,zip,phone_nu
 Query OK, 4 rows affected (0.01 sec)
 Records: 4  Duplicates: 0  Warnings: 0
 
+-- UC 4 - Update contact using name
+mysql> UPDATE contacts set address = "125 Main St" WHERE firstname="Alex" AND lastname="Johnson";
+Query OK, 1 row affected (0.02 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
