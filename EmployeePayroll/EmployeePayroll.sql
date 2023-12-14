@@ -71,3 +71,22 @@ mysql> SELECT salary FROM employee_payroll WHERE start BETWEEN CAST('2023-11-12'
 +--------+
 2 rows in set (0.00 sec)
 
+--UC 6 - Add a column
+mysql> ALTER TABLE employee_payroll ADD gender VARCHAR(2) NOT NULL AFTER name;
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> UPDATE employee_payroll set gender = 'M' where name = 'Bill' or name = 'John';
+Query OK, 2 rows affected (0.01 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+mysql> Select * from employee_payroll;
++----+-------+--------+--------+------------+
+| id | name  | gender | salary | start      |
++----+-------+--------+--------+------------+
+|  1 | Bill  | M      | 100000 | 2023-12-12 |
+|  2 | Emily |        | 120000 | 2023-11-12 |
+|  3 | John  | M      |  13000 | 2023-10-12 |
++----+-------+--------+--------+------------+
+3 rows in set (0.00 sec)
+
