@@ -23,3 +23,12 @@ mysql> create table contacts(id INT NOT NULL AUTO_INCREMENT, firstname VARCHAR(1
     -> email VARCHAR(150) NOT NULL,PRIMARY KEY(id));
 Query OK, 0 rows affected (0.07 sec)
 
+-- UC 3 - Insert into DB
+mysql>  INSERT INTO contacts (firstname,lastname,address,city,state,zip,phone_number,email) VALUES
+    -> ("John", "Doe", "123 Main St", "Anytown", "CA", "12345", "5555551234", "john.doe@example.com"),
+    -> ("Jane", "Smith", "456 Oak Ave", "Springfield", "IL", "67890", "5555555678", "jane.smith@example.com"),
+    -> ("Alex", "Johnson", "789 Pine Rd", "Lakeside", "FL", "34567", "5555558765", "alex.j@example.com"),
+    -> ("Alex", "Smith", "789 Pine Rd", "Lakeside", "FL", "34567", "5555558766", "alex.smith@example.com");
+Query OK, 4 rows affected (0.01 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
